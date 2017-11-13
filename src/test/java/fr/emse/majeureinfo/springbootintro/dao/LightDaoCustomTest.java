@@ -38,7 +38,7 @@ public class LightDaoCustomTest {
 
     protected static final DbSetupTracker TRACKER = new DbSetupTracker();
 
-    private static final Operation DELETE_ALL = DeleteAll.from("light");
+    private static final Operation DELETE_ALL = DeleteAll.from("ROOM","LIGHT","NOISE");
 
     protected void dbSetup(Operation operation) {
         DbSetup setup = new DbSetup(new DataSourceDestination(dataSource),
@@ -52,7 +52,7 @@ public class LightDaoCustomTest {
                 Insert.into("LIGHT")
                         .withDefaultValue("status", Status.ON)
                         .columns("id", "level")
-                        .values(1L, 22)
+                        .values(2L, 22)
                         .build();
         dbSetup(light);
     }
