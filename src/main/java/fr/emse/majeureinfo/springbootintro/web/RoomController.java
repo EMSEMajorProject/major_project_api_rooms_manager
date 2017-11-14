@@ -29,7 +29,7 @@ public class RoomController {
         return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 
-    @GetMapping(value = "/{roomId}")
+    @GetMapping(value = {"/{roomId}","/{roomId}/context"})
     public RoomDto get (@PathVariable Long roomId){
         Room room = roomDao.getOne(roomId);
         RoomDto roomDto = new RoomDto(room);
