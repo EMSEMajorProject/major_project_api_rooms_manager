@@ -21,8 +21,6 @@ import static fr.emse.majeureinfo.springbootintro.model.Status.ON;
 public class RoomController {
 
     private final RoomDao roomDao;
-    //private final LightDao lightDao;
-
 
     public RoomController(RoomDao roomDao) {
         this.roomDao = roomDao;
@@ -51,6 +49,11 @@ public class RoomController {
         noise.setStatus(noisestatus == ON ? OFF : ON);
         NoiseDto noiseDto = new NoiseDto(noise);
         return noiseDto;
+    }
+
+    @GetMapping(value ="/list-with-on-lights")
+    public List<RoomDto> listWithOnLight() {
+        return roomDao.findRoomsWithOnLights().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 }
 
