@@ -18,7 +18,7 @@ public class Light {
     private Status status;
 
     @SuppressWarnings("unused")
-    private Light(Light light) {
+    public Light() {
     }
 
     public Light(Integer level, Status status) {

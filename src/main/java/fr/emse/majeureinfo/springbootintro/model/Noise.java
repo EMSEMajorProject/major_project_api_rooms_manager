@@ -18,7 +18,7 @@ public class Noise {
     private Status status;
 
     @SuppressWarnings("unused")
-    private Noise() {
+    public Noise() {
     }
 
     public Noise(Integer level, Status status) {

@@ -2,12 +2,13 @@ package fr.emse.majeureinfo.springbootintro.web;
 
 
 import fr.emse.majeureinfo.springbootintro.dao.RoomDao;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 

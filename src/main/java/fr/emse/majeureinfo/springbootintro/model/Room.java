@@ -24,7 +24,7 @@ public class Room {
     private Noise noise;
 
     @SuppressWarnings("unused")
-    private Room() {
+    public Room() {
     }
 
     public Room(Light light, Noise noise) {
