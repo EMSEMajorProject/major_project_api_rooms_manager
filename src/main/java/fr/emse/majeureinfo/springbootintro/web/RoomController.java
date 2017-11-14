@@ -3,14 +3,16 @@ package fr.emse.majeureinfo.springbootintro.web;
 
 import fr.emse.majeureinfo.springbootintro.dao.RoomDao;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import fr.emse.majeureinfo.springbootintro.model.Light;
+import fr.emse.majeureinfo.springbootintro.model.Room;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
+
+
 
 @RestController
 @RequestMapping(value = "/api/rooms")
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 public class RoomController {
 
     private final RoomDao roomDao;
+    public Long roomId;
 
 
     public RoomController(RoomDao roomDao) {
@@ -28,6 +31,19 @@ public class RoomController {
     public List<RoomDto> list() {
         return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
     }
+
+
+    @GetMapping(value = "/{roomId}")
+    public RoomDto get (@PathVariable Long roomId){
+        Room room = roomDao.getOne(roomId);
+        RoomDto roomDto = new RoomDto(room);
+        return roomDto;
+
+    }
+
+
+
+
 
 }
 
