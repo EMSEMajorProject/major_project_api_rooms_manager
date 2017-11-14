@@ -4,6 +4,7 @@ package fr.emse.majeureinfo.springbootintro.web;
 import fr.emse.majeureinfo.springbootintro.dao.RoomDao;
 
 import fr.emse.majeureinfo.springbootintro.model.Light;
+import fr.emse.majeureinfo.springbootintro.model.Noise;
 import fr.emse.majeureinfo.springbootintro.model.Room;
 import fr.emse.majeureinfo.springbootintro.model.Status;
 import org.springframework.web.bind.annotation.*;
@@ -53,6 +54,17 @@ public class RoomController {
         light.setStatus(lightstatus == ON ? OFF : ON);
         LightDto lightDto = new LightDto(light);
         return lightDto;
+    }
+
+
+    @PostMapping(value = "/{id}/switch-noise")
+    public NoiseDto switchNoise(@PathVariable("id") Long id){
+        Room room = roomDao.getOne(id);
+        Noise noise = room.getNoise();
+        Status noisestatus = noise.getStatus();
+        noise.setStatus(noisestatus == ON ? OFF : ON);
+        NoiseDto noiseDto = new NoiseDto(noise);
+        return noiseDto;
     }
 
 }
