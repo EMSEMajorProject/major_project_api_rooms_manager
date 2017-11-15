@@ -53,6 +53,12 @@ public class RoomController {
         return new NoiseDto(noise);
     }
 
+    @PostMapping(value = "/new")
+    public RoomDto newRoom(@RequestBody Room room){
+        roomDao.save(room);
+        return new RoomDto(room);
+    }
+
     @GetMapping(value ="/list-with-on-lights")
     public List<RoomDto> listWithOnLight() {
         return roomDao.findRoomsWithOnLights().stream().map(RoomDto::new).collect(Collectors.toList());
