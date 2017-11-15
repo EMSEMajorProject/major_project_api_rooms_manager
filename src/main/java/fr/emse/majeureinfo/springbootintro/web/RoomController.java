@@ -53,6 +53,11 @@ public class RoomController {
         return new NoiseDto(noise);
     }
 
+    @PostMapping(value = "/{id}/delete")
+    public void delete(@PathVariable("id") Long id){
+        roomDao.delete(id);
+    }
+
     @PostMapping(value = "/new")
     public RoomDto newRoom(@RequestBody Room room){
         roomDao.save(room);
