@@ -1,6 +1,5 @@
 package fr.emse.majeureinfo.springbootintro.dao;
 
-import fr.emse.majeureinfo.springbootintro.model.Light;
 import fr.emse.majeureinfo.springbootintro.model.Room;
 import fr.emse.majeureinfo.springbootintro.model.Status;
 
