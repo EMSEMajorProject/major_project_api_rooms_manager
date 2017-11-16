@@ -11,6 +11,9 @@ public class Room {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
+    private String name;
+
     /**
      * The Light of a room
      */
@@ -27,9 +30,10 @@ public class Room {
     public Room() {
     }
 
-    public Room(Light light, Noise noise) {
+    public Room(String name, Light light, Noise noise) {
         this.light = light;
         this.noise = noise;
+        this.name = name;
     }
 
     public Long getId() {
@@ -38,6 +42,14 @@ public class Room {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Light getLight() {
