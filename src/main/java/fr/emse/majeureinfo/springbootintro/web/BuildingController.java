@@ -30,8 +30,8 @@ public class BuildingController {
     }
 
     @GetMapping
-    public List<BuildingDto> list() {
-        return buildingDao.findAll().stream().map(BuildingDto::new).collect(Collectors.toList());
+    public List<BuildingLiteDto> list() {
+        return buildingDao.findBuildingLite();
     }
 
     @GetMapping(value = {"/{buildingId}","/{buildingId}/context"})
