@@ -69,5 +69,19 @@ public class RoomController {
         return roomDao.findRoomsWithOnLights().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 
+    @PostMapping(value ="/{id}/light/level/{level}")
+    public RoomDto setLightLevel(@PathVariable("id") Long id, @PathVariable("level") Integer level){
+        Room room = roomDao.getOne(id);
+        room.getLight().setLevel(level);
+        return new RoomDto(room);
+    }
+
+    @PostMapping(value ="/{id}/noise/level/{level}")
+    public RoomDto setNoiseLevel(@PathVariable("id") Long id, @PathVariable("level") Integer level){
+        Room room = roomDao.getOne(id);
+        room.getNoise().setLevel(level);
+        return new RoomDto(room);
+    }
+
 }
 
