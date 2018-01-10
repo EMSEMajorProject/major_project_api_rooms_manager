@@ -16,7 +16,7 @@ public class Building {
     private String name;
 
     /**
-     * The Room of the building
+     * The Rooms of the building
      */
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Room> rooms;

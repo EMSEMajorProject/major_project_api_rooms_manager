@@ -29,6 +29,11 @@ public class BuildingController {
         this.roomDao= roomDao;
     }
 
+    @GetMapping(value = {"/all"})
+    public List<BuildingDto> listAll() {
+        return buildingDao.findAll().stream().map(BuildingDto::new).collect(Collectors.toList());
+    }
+
     @GetMapping
     public List<BuildingLiteDto> list() {
         return buildingDao.findBuildingLite();
